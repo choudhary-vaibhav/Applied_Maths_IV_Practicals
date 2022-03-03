@@ -7,8 +7,8 @@ float function(float);
 int main()
 {
     float a, b, c, fa, fb, fc;
-    a = 2;
-    b = 3;
+    a = 0;
+    b = 1;
     int flag = 0;
 
     int n;
@@ -20,6 +20,8 @@ int main()
         fa = function(a);
         fb = function(b);
 
+       // printf("\n%f", fa*fb );
+
         if( fa*fb < 0 )
         {
             flag = 1;
@@ -27,11 +29,15 @@ int main()
             fc = function(c);
 
             if ( fc < 0 )
-                b = c;
-            else if ( fc > 0 )
+            {
                 a = c;
+            }
+            else if ( fc > 0 )
+            {
+                 b = c;
+            }
 
-                printf("After iteration %d approx value of x is %f", i+1, c );
+                printf("\nAfter iteration %d approx value of x is %f", i+1, c );
 
         }
     }
@@ -45,5 +51,5 @@ int main()
 
 float function( float x )
 {
-    return pow(x,3) - 4*x - 9;
+    return x*pow(2.78,x)-1;
 }
